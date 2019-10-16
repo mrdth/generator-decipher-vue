@@ -8,7 +8,7 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(
-      yosay(`Welcome to the first-class ${chalk.red('generator-decipher-vue')} generator!`)
+      yosay(`Welcome to the first-class ${chalk.red('Decipher Tools VueJS')} generator!`)
     );
 
     const prompts = [
@@ -36,7 +36,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    let templates = [
+    const templates = [
       'webpack.mix.js',
       'src/js/index.js',
       'src/xml/meta.xml',
@@ -46,29 +46,33 @@ module.exports = class extends Generator {
     this.fs.copy(this.templatePath('*'), this.destinationPath());
     this.fs.copy(this.templatePath('.*'), this.destinationPath());
     
-    // this.fs.copy(this.templatePath('dist'), this.destinationPath('dist'));
-  
-
 
     templates.forEach( tpl => this.fs.copyTpl(
       this.templatePath(tpl),
       this.destinationPath(tpl),
-      this.props // template variables
+      this.props
     ));
 
     this.fs.copyTpl(
       this.templatePath('src/js/components/toolname.vue'), 
       this.destinationPath(`src/js/components/${this.props.toolName}.vue`),
-      this.props // template variables
+      this.props
     );
   
   }
 
-  installingVue() {
-    this.yarnInstall(['vue'], { 'dev': true });
-  }
-
   install() {
+    this.yarnInstall([
+      'vue',
+      "browser-sync",
+      "browser-sync-webpack-plugin",
+      "cross-env",
+      "eslint",
+      "eslint-plugin-vue",
+      "laravel-mix",
+      "semistandard",
+    ], { 'dev': true });
+
     this.installDependencies({
       npm: false,
       bower: false,
