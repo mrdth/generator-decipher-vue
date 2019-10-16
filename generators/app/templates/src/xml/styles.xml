@@ -1,0 +1,36 @@
+<styles>
+
+  <stylevar name="<%= toolName %>:examplesv" title="Example" type="string"></stylevar>
+
+  <include href="<%= toolName %>.js"/>
+
+  <style name='survey.question.answers.start'>
+    <![CDATA[
+    <div id="<%= toolName %>">
+      <<%= toolName %>-decipher
+        examplesv="${this.styles.<%= toolName %>.examplesv}">
+      </<%= toolName %>-decipher>
+    </div>
+
+    <div class="answers $(answerClassNames)" style="display: none">
+      $(fir)
+      \@if not ec.simpleList
+        <$(tag) class="grid $(gridClassNames)" data-settings="$(gridOptions)" data-height="${this.styles.ss.rowHeight if this.styles.ss.rowHeight else ""}" summary="This table contains form elements to answer the survey question">
+        \@if not simple
+        <tbody>
+        \@endif
+        \@if not forceDesktop
+        ${v2_insertStyle('question.borderfix')}
+        \@endif
+      \@endif
+    ]]>
+  </style>
+
+  <style name="question.after" wrap="ready"> <![CDATA[
+      window.<%= toolName %>jsexport = {};
+      window.<%= toolName %>jsexport = ${jsexport()};
+      //jsexport2 = ${jsexport()};
+      //Survey.question.iscpsm.setup(jsexport2);
+  ]]></style>
+
+</styles>

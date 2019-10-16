@@ -1,0 +1,20 @@
+<meta>
+  <modifies>controls</modifies>
+  <scope>text</scope>
+  <description><%= toolName %></description>
+  <title><%= toolName %></title>
+  <supports>noanswer</supports>
+  <builder>pan</builder>
+  <compat>143</compat>
+  <state>live</state>
+  <template scope="text">
+    <![CDATA[
+      <text label="{x}" optional="1" size="10">
+        <title>Insert Question Text Here</title>
+        <comment>Insert Instruction Text Here</comment>
+        <row label="r1">Example Row 1</row>
+      </text>
+    ]]>
+  </template>
+</meta>
+
