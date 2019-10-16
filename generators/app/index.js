@@ -64,14 +64,16 @@ module.exports = class extends Generator {
   install() {
     this.yarnInstall([
       'vue',
-      "browser-sync",
-      "browser-sync-webpack-plugin",
-      "cross-env",
-      "eslint",
-      "eslint-plugin-vue",
-      "laravel-mix",
-      "semistandard",
-    ], { 'dev': true });
+      'cross-env',
+      'eslint',
+      'eslint-plugin-vue',
+      'laravel-mix',
+      'semistandard',
+      'vue-template-compiler'
+    ], { 
+      'dev': true ,
+      'production': false
+    });
 
     this.installDependencies({
       npm: false,

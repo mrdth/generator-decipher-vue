@@ -3,11 +3,11 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-decipher-vue using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-decipher-vue using [yarn](https://www.yarnpkg.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
-npm install -g yo
-npm install -g generator-decipher-vue
+yarn global add yo
+yarn global add  generator-decipher-vue
 ```
 
 Then generate your new project:
