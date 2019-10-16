@@ -16,6 +16,11 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'toolName',
         message: 'What is the toolname?',
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: 'Description to use in decipher:',
       }
     ];
 
@@ -25,15 +30,49 @@ module.exports = class extends Generator {
     });
   }
 
+  default() {
+    mkdirp(this.props.toolName);
+    this.destinationRoot(this.destinationPath(this.props.toolName));
+  }
+
   writing() {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+    let templates = [
+      'webpack.mix.js',
+      'src/js/index.js',
+      'src/xml/meta.xml',
+      'src/xml/styles.xml'
+    ];
+
+    this.fs.copy(this.templatePath('*'), this.destinationPath());
+    this.fs.copy(this.templatePath('.*'), this.destinationPath());
+    
+    // this.fs.copy(this.templatePath('dist'), this.destinationPath('dist'));
+  
+
+
+    templates.forEach( tpl => this.fs.copyTpl(
+      this.templatePath(tpl),
+      this.destinationPath(tpl),
+      this.props // template variables
+    ));
+
+    this.fs.copyTpl(
+      this.templatePath('src/js/components/toolname.vue'), 
+      this.destinationPath(`src/js/components/${this.props.toolName}.vue`),
+      this.props // template variables
     );
+  
+  }
+
+  installingVue() {
+    this.yarnInstall(['vue'], { 'dev': true });
   }
 
   install() {
-    mkdirp(this.props.toolName);
-    this.installDependencies(this.destinationPath(this.props.toolName));
+    this.installDependencies({
+      npm: false,
+      bower: false,
+      yarn: true
+    });
   }
 };

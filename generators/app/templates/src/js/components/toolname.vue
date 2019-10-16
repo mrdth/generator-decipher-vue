@@ -10,13 +10,13 @@ import Vue from 'vue'
 
 export default {
 
-  name: 'Toolname',
+  name: '<%= toolName %>',
 
   props: ['examplesv'],
 
   data () {
     return {
-      jsx: window.toolnamejsexport,
+      jsx: window.<%= toolName %>jsexport,
     };
   },
 

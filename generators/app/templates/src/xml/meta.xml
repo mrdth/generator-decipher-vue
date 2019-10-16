@@ -1,8 +1,8 @@
 <meta>
   <modifies>controls</modifies>
   <scope>text</scope>
-  <description><%= toolName %></description>
-  <title><%= toolName %></title>
+  <description><%= description %></description>
+  <title>isc<%= toolName %></title>
   <supports>noanswer</supports>
   <builder>pan</builder>
   <compat>143</compat>
