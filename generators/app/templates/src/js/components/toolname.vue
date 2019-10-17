@@ -6,27 +6,32 @@
 
 <script>
 
-import Vue from 'vue'
-
 export default {
 
   name: '<%= toolName %>',
 
-  props: ['examplesv'],
+  props: [
+    {
+      examplesv: {
+        type: String,
+        required: true
+      }
+    }
+  ],
 
   data () {
     return {
-      jsx: window.<%= toolName %>jsexport,
+      js_export: window.<%= toolName %>jsexport,
     };
   },
 
-  computed : {
+  computed: {
   },
 
   watch: {
   },
 
-  mounted() {
+  mounted () {
   },
 
   methods: {
