@@ -1,4 +1,4 @@
-# generator-decipher [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-decipher-vue [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Generate a new Decipher tools project using VueJS
 
 ## Installation
@@ -28,9 +28,9 @@ yo decipher-vue
 MIT © [mrdth]()
 
 
-[npm-image]: https://badge.fury.io/js/generator-decipher.svg
-[npm-url]: https://npmjs.org/package/generator-decipher
-[travis-image]: https://travis-ci.com/mrdth/generator-decipher.svg?branch=master
-[travis-url]: https://travis-ci.com/mrdth/generator-decipher
-[daviddm-image]: https://david-dm.org/mrdth/generator-decipher.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/mrdth/generator-decipher
+[npm-image]: https://badge.fury.io/js/generator-decipher-vue.svg
+[npm-url]: https://npmjs.org/package/generator-decipher-vue
+[travis-image]: https://travis-ci.com/mrdth/generator-decipher-vue.svg?branch=master
+[travis-url]: https://travis-ci.com/mrdth/generator-decipher-vue
+[daviddm-image]: https://david-dm.org/mrdth/generator-decipher-vue.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/mrdth/generator-decipher-vue
