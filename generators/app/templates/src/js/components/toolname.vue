@@ -10,14 +10,12 @@ export default {
 
   name: '<%= toolName %>',
 
-  props: [
-    {
-      examplesv: {
-        type: String,
-        required: true
-      }
+  props: {
+    examplesv: {
+      type: String,
+      required: true
     }
-  ],
+  },
 
   data () {
     return {

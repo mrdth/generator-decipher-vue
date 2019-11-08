@@ -3,6 +3,7 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const mkdirp = require('mkdirp');
+const pascalCase = require('just-pascal-case')
 
 module.exports = class extends Generator {
   prompting() {
@@ -27,6 +28,7 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.props.toolNamePascal = pascalCase(props.toolName);
     });
   }
 
@@ -45,7 +47,7 @@ module.exports = class extends Generator {
 
     this.fs.copy(this.templatePath('*'), this.destinationPath());
     this.fs.copy(this.templatePath('.*'), this.destinationPath());
-    
+
 
     templates.forEach( tpl => this.fs.copyTpl(
       this.templatePath(tpl),
@@ -54,11 +56,11 @@ module.exports = class extends Generator {
     ));
 
     this.fs.copyTpl(
-      this.templatePath('src/js/components/toolname.vue'), 
+      this.templatePath('src/js/components/toolname.vue'),
       this.destinationPath(`src/js/components/${this.props.toolName}.vue`),
       this.props
     );
-  
+
   }
 
   install() {
@@ -68,9 +70,10 @@ module.exports = class extends Generator {
       'eslint',
       'eslint-plugin-vue',
       'laravel-mix',
+      'laravel-mix-polyfill',
       'semistandard',
       'vue-template-compiler'
-    ], { 
+    ], {
       'dev': true ,
       'production': false
     });
