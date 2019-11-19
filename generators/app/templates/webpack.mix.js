@@ -1,7 +1,8 @@
 const mix = require('laravel-mix');
-const mix = require('laravel-mix-polyfill');
+require('laravel-mix-polyfill');
+
 const version = 'v1';
-const toolname = '<%= toolName %>'
+const toolname = '<%= toolName %>';
 
 mix.setPublicPath('/')
   .copy( 'src/xml/*.xml', `dist/isc${toolname}/${version}/`)
