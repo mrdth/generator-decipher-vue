@@ -19,7 +19,7 @@ export default {
 
   data () {
     return {
-      js_export: window.<%= toolName %>jsexport,
+      js_export: window.<%= toolNamePascal %>JsExport,
     };
   },
 

@@ -27,10 +27,8 @@
   </style>
 
   <style name="question.after" wrap="ready"> <![CDATA[
-      window.<%= toolName %>jsexport = {};
-      window.<%= toolName %>jsexport = ${jsexport()};
-      //jsexport2 = ${jsexport()};
-      //Survey.question.iscpsm.setup(jsexport2);
+      window.<%= toolNamePascal %>JsExport = {};
+      window.<%= toolNamePascal %>JsExport = ${jsexport()};
   ]]></style>
 
 </styles>
