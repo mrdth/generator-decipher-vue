@@ -65,7 +65,6 @@ module.exports = class extends Generator {
 
   install() {
     this.yarnInstall([
-      'vue',
       'cross-env',
       'eslint',
       'eslint-plugin-vue',

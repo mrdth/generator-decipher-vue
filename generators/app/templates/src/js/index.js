@@ -1,11 +1,10 @@
-/* global require */
-import Vue from 'vue';
+/* global Vue */
 import <%= toolNamePascal %> from './components/<%= toolName %>.vue';
-
-Vue.component('<%= toolName %>-decipher', <%= toolNamePascal %>);
 
 // Boot Vue.js, and attach to the top level #survey element.
 window.addEventListener('load', (event) => {
+  Vue.component('<%= toolName %>-decipher', <%= toolNamePascal %>);
+
   const app = new Vue({
     el: '#<%= toolName %>'
   });
