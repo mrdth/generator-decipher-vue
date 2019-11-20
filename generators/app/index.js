@@ -46,10 +46,11 @@ module.exports = class extends Generator {
     ];
 
     this.fs.copy(this.templatePath('*'), this.destinationPath());
+    this.fs.copy(this.templatePath('src/icons/*'), this.destinationPath('src/icons'));
     this.fs.copy(this.templatePath('.*'), this.destinationPath());
 
 
-    templates.forEach( tpl => this.fs.copyTpl(
+    templates.forEach(tpl => this.fs.copyTpl(
       this.templatePath(tpl),
       this.destinationPath(tpl),
       this.props
