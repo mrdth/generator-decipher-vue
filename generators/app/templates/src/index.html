@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="src/css/decipher.css" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body class="survey-page non-touch" data-device="" cz-shortcut-listen="true">
+    <div id="survey" class="survey-container">
+        <div class="survey-section">
+            <div class="page-header"></div>
+            <!-- /.page-header -->
+        </div>
+        <div class="survey-section">
+            <div class="survey-body">
+
+                <div id="<%= toolName %>">
+                    <<%= toolName %>-decipher>
+                    </<%= toolName %>-decipher>
+                </div>
+
+            </div>
+            <!-- /.survey-body -->
+        </div>
+
+    </div>
+    <div id="detectBreakpoint"></div>
+    <!-- /.survey-container -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../dist/isc<%= toolName %>/v1/static/<%= toolName %>.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 <template>
   <div>
-      Test
+    Test
  </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
 
   data () {
     return {
-      js_export: window.<%= toolNamePascal %>JsExport,
+      js_export: window.<%= toolNamePascal %>JsExport
     };
   },
 
@@ -33,7 +33,7 @@ export default {
   },
 
   methods: {
-  },
+  }
 
 };
 

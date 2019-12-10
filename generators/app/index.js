@@ -44,6 +44,7 @@ module.exports = class extends Generator {
   writing() {
     const templates = [
       "webpack.mix.js",
+      "src/index.html",
       "src/js/index.js",
       "src/xml/meta.xml",
       "src/xml/styles.xml"
@@ -53,6 +54,10 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath("src/icons/*"),
       this.destinationPath("src/icons")
+    );
+    this.fs.copy(
+      this.templatePath("src/css/*"),
+      this.destinationPath("src/css")
     );
     this.fs.copy(this.templatePath(".*"), this.destinationPath());
 
@@ -80,7 +85,9 @@ module.exports = class extends Generator {
         "laravel-mix",
         "laravel-mix-polyfill",
         "semistandard",
-        "vue-template-compiler"
+        "vue-template-compiler",
+        "browser-sync",
+        "browser-sync-webpack-plugin"
       ],
       {
         dev: true,
