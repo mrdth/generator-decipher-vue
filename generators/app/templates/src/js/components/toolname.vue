@@ -1,14 +1,14 @@
 <template>
   <div>
     Test
- </div>
+  </div>
 </template>
 
 <script>
 
 export default {
 
-  name: '<%= toolName %>',
+  name: '<%= toolNamePascal %>',
 
   props: {
     examplesv: {

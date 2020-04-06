@@ -81,10 +81,14 @@ module.exports = class extends Generator {
       [
         "cross-env",
         "eslint",
+        "eslint-config-standard",
         "eslint-plugin-vue",
+        "eslint-plugin-import",
+        "eslint-plugin-node",
+        "eslint-plugin-promise",
+        "eslint-plugin-standard",
         "laravel-mix",
         "laravel-mix-polyfill",
-        "semistandard",
         "vue-template-compiler",
         "browser-sync",
         "browser-sync-webpack-plugin"
