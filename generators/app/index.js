@@ -37,7 +37,7 @@ module.exports = class extends Generator {
   }
 
   default() {
-    mkdirp(this.props.toolName);
+    mkdirp.sync(this.props.toolName);
     this.destinationRoot(this.destinationPath(this.props.toolName));
   }
 
