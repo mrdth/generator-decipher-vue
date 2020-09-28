@@ -5,7 +5,7 @@ const yosay = require("yosay");
 const mkdirp = require("mkdirp");
 const pascalCase = require("just-pascal-case");
 const Vue2Generator = require("./modules/Vue2Generator");
-const Vue3Generator = require("../app/modules/vue3");
+const Vue3Generator = require("./modules/Vue3Generator");
 
 module.exports = class extends Generator {
   prompting() {
@@ -26,11 +26,11 @@ module.exports = class extends Generator {
         choices: [
           {
             name: "Vue 2",
-            value: "vue2"
+            value: "2"
           },
           {
             name: "Vue 3",
-            value: "vue3"
+            value: "3"
           }
         ],
         default: "vue2"
@@ -60,7 +60,7 @@ module.exports = class extends Generator {
       this.props.toolNamePascal = pascalCase(props.toolName);
 
       this.pluginGenerator =
-        props.vueVersion === "vue2"
+        props.vueVersion === "2"
           ? new Vue2Generator(this)
           : new Vue3Generator(this);
     });

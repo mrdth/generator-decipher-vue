@@ -1,24 +1,23 @@
 /* global require */
-const mix = require('laravel-mix');
-require('laravel-mix-polyfill');
+const mix = require("laravel-mix");
+require("laravel-mix-polyfill");
 
-const version = 'v1';
-const toolname = '<%= toolName %>';
+const version = "v1";
+const toolname = "<%= toolName %>";
 
-mix.setPublicPath('/')
-  .copy('src/xml/*.xml', `dist/isc${toolname}/${version}/`)
-  .copy('src/icons/*.*', `dist/isc${toolname}/${version}/static/`)
-  .js('src/js/index.js', `dist/isc${toolname}/${version}/static/${toolname}.js`)
+mix
+  .setPublicPath("/")
+  .copy("src/xml/*.xml", `dist/isc${toolname}/${version}/`)
+  .copy("src/icons/*.*", `dist/isc${toolname}/${version}/static/`)
+  .js("src/js/index.js", `dist/isc${toolname}/${version}/static/${toolname}.js`)
   .polyfill()
   .browserSync({
-    host: 'localhost',
-    proxy:'',
+    host: "localhost",
+    proxy: "",
     port: 3000,
-    files: [
-        'dist/**/*.*',
-    ],
+    files: ["dist/**/*.*"],
     server: {
-      baseDir: '.',
-      index: 'src/index.html'
+      baseDir: ".",
+      index: "index.html"
     }
   });

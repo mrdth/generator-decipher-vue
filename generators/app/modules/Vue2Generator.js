@@ -6,7 +6,7 @@ module.exports = class vue2Generator {
   writing() {
     const templates = [
       "webpack.mix.js",
-      "src/index.html",
+      "index.html",
       "src/js/index.js",
       "src/xml/meta.xml",
       "src/xml/styles.xml"
