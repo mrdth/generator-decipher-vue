@@ -4,6 +4,8 @@ const chalk = require("chalk");
 const yosay = require("yosay");
 const mkdirp = require("mkdirp");
 const pascalCase = require("just-pascal-case");
+const Vue2Generator = require("./modules/Vue2Generator");
+const Vue3Generator = require("../app/modules/vue3");
 
 module.exports = class extends Generator {
   prompting() {
@@ -18,6 +20,22 @@ module.exports = class extends Generator {
 
     const prompts = [
       {
+        type: "list",
+        name: "vueVersion",
+        message: "Which version of Vue do you want to base the plugin on?",
+        choices: [
+          {
+            name: "Vue 2",
+            value: "vue2"
+          },
+          {
+            name: "Vue 3",
+            value: "vue3"
+          }
+        ],
+        default: "vue2"
+      },
+      {
         type: "input",
         name: "toolName",
         message: "What is the toolname?"
@@ -26,6 +44,13 @@ module.exports = class extends Generator {
         type: "input",
         name: "description",
         message: "Description to use in decipher:"
+      },
+      {
+        type: "list",
+        name: "packageManager",
+        message: "Which package manager do you prefer to use?",
+        choices: ["npm", "yarn"],
+        default: "yarn"
       }
     ];
 
@@ -33,6 +58,11 @@ module.exports = class extends Generator {
       // To access props later use this.props.someAnswer;
       this.props = props;
       this.props.toolNamePascal = pascalCase(props.toolName);
+
+      this.pluginGenerator =
+        props.vueVersion === "vue2"
+          ? new Vue2Generator(this)
+          : new Vue3Generator(this);
     });
   }
 
@@ -42,67 +72,10 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const templates = [
-      "webpack.mix.js",
-      "src/index.html",
-      "src/js/index.js",
-      "src/xml/meta.xml",
-      "src/xml/styles.xml"
-    ];
-
-    this.fs.copy(this.templatePath("*"), this.destinationPath());
-    this.fs.copy(
-      this.templatePath("src/icons/*"),
-      this.destinationPath("src/icons")
-    );
-    this.fs.copy(
-      this.templatePath("src/css/*"),
-      this.destinationPath("src/css")
-    );
-    this.fs.copy(this.templatePath(".*"), this.destinationPath());
-
-    templates.forEach(tpl =>
-      this.fs.copyTpl(
-        this.templatePath(tpl),
-        this.destinationPath(tpl),
-        this.props
-      )
-    );
-
-    this.fs.copyTpl(
-      this.templatePath("src/js/components/toolname.vue"),
-      this.destinationPath(`src/js/components/${this.props.toolName}.vue`),
-      this.props
-    );
+    this.pluginGenerator.writing(this);
   }
 
   install() {
-    this.yarnInstall(
-      [
-        "cross-env",
-        "eslint",
-        "eslint-config-standard",
-        "eslint-plugin-vue",
-        "eslint-plugin-import",
-        "eslint-plugin-node",
-        "eslint-plugin-promise",
-        "eslint-plugin-standard",
-        "laravel-mix",
-        "laravel-mix-polyfill",
-        "vue-template-compiler",
-        "browser-sync",
-        "browser-sync-webpack-plugin"
-      ],
-      {
-        dev: true,
-        production: false
-      }
-    );
-
-    this.installDependencies({
-      npm: false,
-      bower: false,
-      yarn: true
-    });
+    this.pluginGenerator.install(this);
   }
 };
