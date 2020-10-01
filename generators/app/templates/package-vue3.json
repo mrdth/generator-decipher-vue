@@ -1,0 +1,10 @@
+{
+    "scripts": {
+        "watch": "vite",
+        "production": "vite build"
+    },
+    "dependencies": {},
+    "devDependencies": {
+
+    }
+}

@@ -44,6 +44,16 @@ module.exports = class vue2Generator {
       ),
       this.context.props
     );
+
+    // Move the correct package.json template into place, and delete the redundant oen.
+    this.context.fs.move(
+      this.context.destinationPath(
+        `package-vue${this.context.props.vueVersion}.json`
+      ),
+      this.context.destinationPath("package.json")
+    );
+
+    this.context.fs.delete(this.context.destinationPath("package-vue*.json"));
   }
 
   install() {

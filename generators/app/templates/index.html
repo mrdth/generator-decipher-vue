@@ -33,7 +33,11 @@
     <div id="detectBreakpoint"></div>
     <!-- /.survey-container -->
     <script src="https://unpkg.com/vue@<%= vueVersion %>"></script>
-    <script src="../dist/isc<%= toolName %>/v1/static/<%= toolName %>.js"></script>
+    <% if(vueVersion === "2"){ %>
+    <script src="./dist/isc<%= toolName %>/v1/static/<%= toolName %>.js"></script>
+    <% } else {%>
+    <script src="./src/js/index.js" type="module"></script>
+    <% } %>
 </body>
 
 </html>
