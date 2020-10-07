@@ -3,7 +3,9 @@
         "watch": "vite",
         "production": "vite build"
     },
-    "dependencies": {},
+    "dependencies": {
+        "vue": "^3"
+    },
     "devDependencies": {
 
     }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    Test
+    Hello, World!
   </div>
 </template>
 
@@ -36,11 +36,10 @@ export default {
   }
 
 };
-
 </script>
 
 <style scoped>
-  .hidden {
-    display: none;
-  }
+.hidden {
+  display: none;
+}
 </style>

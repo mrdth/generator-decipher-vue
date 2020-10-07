@@ -38,7 +38,7 @@ module.exports = class vue2Generator {
     );
 
     this.context.fs.copyTpl(
-      this.context.templatePath("src/js/components/toolname.vue"),
+      this.context.templatePath("src/js/components/toolname-vue2.vue"),
       this.context.destinationPath(
         `src/js/components/${this.context.props.toolName}.vue`
       ),
