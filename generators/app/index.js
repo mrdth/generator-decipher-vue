@@ -87,7 +87,6 @@ module.exports = class extends Generator {
         "eslint-plugin-node",
         "eslint-plugin-promise",
         "eslint-plugin-standard",
-        "laravel-mix",
         "laravel-mix-polyfill",
         "vue-template-compiler",
         "browser-sync",
